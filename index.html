@@ -3,518 +3,16 @@
 
 <head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pedro Oliveira (@thepedroland) | Landscape Evolution & Coding</title>
-
-    <style>
-        :root {
-            --bg: rgba(141, 234, 255, 0.42);
-            --card: rgb(55, 117, 254);
-            --accent: #3775fe;
-            --accent-soft: rgba(0, 0, 0, 0);
-            --text: #ffffff;
-            --muted: rgb(255, 255, 255);
-            --radius: 16px;
-        }
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* ================= NAVBAR ================= */
-        .brand-name {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: #1a1a1a;
-            letter-spacing: -0.5px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            cursor: pointer;
-        }
-
-        .brand-name span {
-            color: var(--accent); /* This makes the last part of your name or a dot blue */
-        }
-
-        .brand-tagline {
-            display: block;
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #64748b;
-            margin-top: -4px;
-        }
-        .navbar {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgb(171, 218, 255);
-            backdrop-filter: blur(8px);
-            border-bottom: 1px solid #eee;
-        }
-
-        .nav-inner {
-            max-width: 1100px;
-            margin: auto;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        .btn, .dropbtn {
-            padding: 0.6rem 1.4rem;
-            border-radius: 12px; /* Matching your card radius style */
-            background: rgba(255, 255, 255, 0.8);
-            color: var(--accent);
-            font-size: 0.95rem;
-            font-weight: 600;
-            border: 1px solid rgba(55, 117, 254, 0.2);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn:hover, .dropbtn:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(55, 117, 254, 0.2);
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: var(--card);
-            min-width: 160px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-            border-radius: var(--radius);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            padding: 12px 16px;
-            display: block;
-            color: var(--text);
-        }
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown-content a:hover {
-            background-color: var(--bg);
-        }
-
-        .header-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        /* ================= SECTIONS ================= */
-        section {
-                max-width: 1100px;
-                margin: 0 auto;        /* Removed top/bottom margin */
-                padding: 2.5rem 2rem;  /* Reduced from 4rem to 2.5rem */
-            }
-
-            /* Remove padding from the very first section so it sits closer to the header */
-            section:first-of-type {
-                padding-top: 1.5rem;
-            }
-
-            /* Optional: Add a very subtle divider line between sections */
-            section:not(:last-of-type) {
-                border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 0.5rem;
-            align-items: center;
-            color: black;
-        }
-
-        .hero h1 {
-            font-size: 2.6rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            max-width: 480px;
-        }
-
-        .hero-image {
-            border-radius: var(--radius);
-            aspect-ratio: 1 / 0.75;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* ================= PROJECTS ================= */
-        .projects {
-            display: grid;
-            gap: 1rem;
-        }
-
-        .project-card {
-            background: var(--card);
-            border-radius: 8px;
-            padding: 2rem;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            align-items: center;
-        }
-
-        .metrics {
-            display: flex;
-            gap: 1rem;
-            font-size: 0.85rem;
-            color: var(--muted);
-            margin: 1rem 0;
-        }
-
-        .project-image {
-            border-radius: var(--radius);
-            aspect-ratio: 2 / 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .slideshow {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            border-radius: var(--radius);
-        }
-
-        .slideshow img {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            animation: fadeSlide 15s infinite;
-        }
-
-        .slideshow img:nth-child(1) { animation-delay: 0s; }
-        .slideshow img:nth-child(2) { animation-delay: 3s; }
-        .slideshow img:nth-child(3) { animation-delay: 6s; }
-        .slideshow img:nth-child(4) { animation-delay: 9s; }
-        .slideshow img:nth-child(5) { animation-delay: 12s; }
-
-        @keyframes fadeSlide {
-            0%, 20% { opacity: 0; }
-            25%, 45% { opacity: 1; }
-            50%, 100% { opacity: 0; }
-        }
-
-        /* ================= ABOUT ME ================= */
-        /* ================= IMPROVED ABOUT ME STYLES ================= */
-        .aboutme {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Two columns on big screens */
-            gap: 2rem;
-            color: #333; /* Darker text for readability inside white/light cards */
-        }
-
-        .aboutme-card {
-            background: #ffffff;
-            border-radius: var(--radius);
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            border-top: 5px solid var(--accent); /* Adds a professional accent bar */
-        }
-
-        .aboutme-card large {
-            display: block;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-        }
-
-        .aboutme-card h3 {
-            font-size: 1.15rem;
-            margin: 1.5rem 0 0.5rem 0;
-            color: #1a1a1a;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-
-        .date-tag {
-            float: right;
-            font-size: 0.8rem;
-            background: #f0f7ff;
-            color: var(--accent);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-weight: 600;
-        }
-
-        .aboutme-card ul, .aboutme-card ol {
-            padding-left: 1.2rem;
-        }
-
-        .aboutme-card li {
-            margin-bottom: 1rem;
-        }
-
-        .aboutme-card p {
-            margin: 0.5rem 0;
-            font-size: 0.95rem;
-            color: #4a5568;
-        }
-
-        /* Specific styling for Experience and Publications */
-        .experience-item {
-            margin-bottom: 2rem;
-        }
-
-        .experience-item h4 {
-            margin: 0;
-            color: #2d3748;
-        }
-
-        /* Responsive adjustment */
-        @media (max-width: 768px) {
-            .aboutme { grid-template-columns: 1fr; }
-            .date-tag { float: none; display: inline-block; margin-bottom: 5px; }
-        }
-
-        /* ================= MODAL & FORM ================= */
-
-        /* 1. Modal Background (The Overlay) */
-        .modal {
-            display: none; /* Hidden by default */
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px); /* Modern blur effect */
-        }
-
-        /* 2. The White Box */
-        .modal-content {
-            background-color: white;
-            color: #333; /* Dark text for readability */
-            margin: 5% auto;
-            padding: 30px;
-            width: 90%;
-            max-width: 500px;
-            border-radius: 12px;
-            position: relative;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-        }
-
-        .modal-content h3 {
-            margin-top: 0;
-            color: var(--accent);
-            font-size: 1.5rem;
-        }
-
-        .close-btn {
-            position: absolute;
-            right: 20px;
-            top: 15px;
-            font-size: 28px;
-            cursor: pointer;
-            color: #94a3b8;
-        }
-
-        .close-btn:hover { color: #333; }
-
-        /* 3. Form Pretty Styling */
-        #contactModal form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        #contactModal input[type="file"] {
-            padding: 10px;
-            background: #f1f5f9;
-            border: 2px dashed #cbd5e1; /* Dashed border suggests "drop here" */
-            cursor: pointer;
-            font-size: 0.8rem;
-        }
-
-        #contactModal input[type="file"]:hover {
-            border-color: var(--accent);
-            background-color: #f8fafc;
-}
-        #contactModal input,
-        #contactModal textarea {
-            width: 100%;
-            padding: 14px;
-            border: 2px solid #e1e8ed;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-family: inherit;
-            transition: all 0.3s ease;
-            background-color: #f9fbfd;
-        }
-
-        #contactModal input:focus,
-        #contactModal textarea:focus {
-            outline: none;
-            border-color: var(--accent);
-            background-color: #ffffff;
-            box-shadow: 0 0 0 4px rgba(55, 117, 254, 0.1);
-        }
-
-        #contactModal input::placeholder,
-        #contactModal textarea::placeholder {
-            color: #94a3b8;
-        }
-
-        #contactModal .btn {
-            width: 100%;
-            padding: 12px;
-            font-weight: 600;
-        }
-
-        #contactModal .btn:hover {
-            filter: brightness(1.1);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(55, 117, 254, 0.3);
-        }
-
-        #navContact {
-        background: linear-gradient(135deg, #3775fe 0%, #0046e5 100%);
-        color: white;
-        border: none;
-        box-shadow: 0 4px 15px rgba(55, 117, 254, 0.3);
-        }
-
-        #navContact:hover {
-            filter: brightness(1.1);
-            box-shadow: 0 6px 20px rgba(55, 117, 254, 0.4);
-        }
-
-        /* Ensure dropdown arrows look nice */
-        .dropbtn::after {
-            content: ' \25BE'; /* Small down arrow */
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
-
-        /* Add a subtle "shimmer" effect that runs across the button */
-        #navContact::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -60%;
-            width: 20%;
-            height: 200%;
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(30deg);
-            transition: all 0.6s;
-        }
-
-        #navContact:hover::after {
-            left: 120%;
-        }
-
-        #navContact:hover {
-            transform: scale(1.05); /* Slight grow */
-            box-shadow: 0 6px 20px rgba(55, 117, 254, 0.4);
-            filter: brightness(1.1);
-        }
-
-        #navContact:active {
-            transform: scale(0.98); /* Sinks in when clicked */
-        }
-
-        /* ================= FOOTER ================= */
-        footer {
-            padding: 2rem;
-            text-align: center;
-            font-size: 0.8rem;
-        }
-
-        @media (max-width: 900px) {
-            .hero, .project-card { grid-template-columns: 1fr; }
-        }
-    </style>
+</head>
 
 <body>
+    <header id="nav-placeholder" class="navbar"></header>
 
-        <header class="navbar">
-        <div class="nav-inner">
-            <div class="logo-wrapper">
-            <div class="brand-name">Pedro <span>Oliveira</span></div>
-            <span class="brand-tagline">LANDSCAPE EVOLUTION & TOOLS</span>
-        </div>
-            <nav class="nav-links">
-
-                <div class="dropdown">
-                    <button class="dropbtn"><i class="fas fa-tools"></i> Tools</button>
-                    <div class="dropdown-content">
-                        <a href="https://github.com/thepedroland/sandtecbox" target="_blank">Tectonic SandBox</a>
-                    </div>
-                </div>
-
-                <a href="#projects" class="btn"><i class="fas fa-layer-group"></i> Projects</a>
-
-                <div class="dropdown">
-                    <button class="dropbtn"><i class="fas fa-user-graduate"></i> About me</button>
-                    <div class="dropdown-content">
-                        <a href="#aboutme">Education</a>
-                        <a href="#publications-conferences">Publications & Conferences</a>
-                        <a href="#grants">Grants & Awards</a>
-                        <a href="#experience">Experience</a>
-                        <a href="#volunteer">Volunteer Work</a>
-                    </div>
-                </div>
-
-                <a href="#" class="btn" id="navContact">
-                    <i class="fas fa-code"></i> Need help coding landscapes?
-                </a>
-
-                <a href="https://github.com/thepedroland" target="_blank">
-                    <i class="fab fa-github" style="font-size: 24px; color: #333; vertical-align: middle;"></i>
-                </a>
-            </nav>
-        </div>
-    </header>
-
-    <img src="header.png" alt="Amazon River" class="header-image">
+    <img src="images/header.png" alt="Amazon River" class="header-image">
 
     <section class="hero">
         <div>
@@ -522,201 +20,59 @@
             <p>I work with numerical models applied to geomorphology and cosmogenic nuclide analysis to understand Earth surface processes.</p>
         </div>
         <div class="hero-image">
-            <img src="hero_pic.jpg" alt="Hero" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
+            <img src="images/hero_pic.jpg" alt="Hero" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
         </div>
     </section>
 
-<!-- PROJECTS -->
-<section id="projects" style="padding-top: 2rem;">
-    <h2 style="color: black;">Current projects</h2>
-
-    <div class="projects">
-        <div class="project-card">
-            <div>
-                <small>Research Project</small>
-                <h3>Amazon River Basin: Quantifying burial ages and erosion rates using cosmogenic nuclides</h3>
-                <p>
-                    Modeled Be-10 and Al-26 production and decay to infer landscape exposure histories.
-                </p>
-                <div class="metrics">
-                    <span>Python</span>
-                    <span>Monte Carlo</span>
-                    <span>Field Data</span>
-                </div>
-            </div>
-            <div class="project-image"><img src="proj_section_1_amazon_1.png" alt="Amazon Project"
-                                            style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div>
-                <small>Research Project</small>
-                <h3>Amazon River Basin: Lithology and River Captures</h3>
-                <p>
-                    Physical and numerical experiments exploring shortening and drainage reorganization.
-                </p>
-                <div class="metrics">
-                    <span>Python</span>
-                    <span>Landlab</span>
-                    <span>Lithology</span>
-                </div>
-            </div>
-            <div class="project-image"><img src="dem_animation.gif" alt="DEM Animation"
-                                            style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
-            </div>
-        </div>
-
-        <div class="project-card">
-            <div>
-                <small>Modeling Tool</small>
-                <h3>Landscape evolution Sandbox Simulation</h3>
-                <p>
-                    Physical and numerical experiments exploring shortening and drainage reorganization.
-                </p>
-                <div class="metrics">
-                    <span>Arduino</span>
-                    <span>Stepper motor</span>
-                    <span>Tectonics</span>
-                </div>
-            </div>
-            <div class="project-image">
-                <div class="slideshow">
-                    <img src="sandbox_pics/image3.jpeg" alt="Sandbox Project">
-                    <img src="sandbox_pics/image4.jpeg" alt="Sandbox Project">
-                    <img src="sandbox_pics/image5.png" alt="Sandbox Project">
-                    <img src="sandbox_pics/image7.png" alt="Sandbox Project">
-                    <img src="sandbox_pics/image8.png" alt="Sandbox Project">
-                </div>
-        </div>
-        </div>
-
-    </div>
-</section>
-
-<!-----About me --->
-
-<section id="aboutme">
-    <h2 style="color: black; margin-bottom: 2rem; font-size: 2rem;">Resume & Background</h2>
-
-    <div class="aboutme">
-        <div class="aboutme-card" id="education">
-            <large>Education</large>
-            <div class="experience-item">
-                <span class="date-tag">2022 - Present</span>
-                <h3>PhD Candidate</h3>
-                <p><strong>Environmental and Geological Sciences</strong></p>
-                <p>Graduate Center - City University of New York (CUNY)</p>
-            </div>
-            <div class="experience-item">
-                <span class="date-tag">2015 - 2022</span>
-                <h3>B.S. Geological Engineering</h3>
-                <p><strong>Federal University of Ouro Preto, Brazil</strong></p>
-                <p>School of Mines - Geology Department</p>
-            </div>
-        </div>
-
-        <div class="aboutme-card" id="grants">
-            <large>Grants & Awards</large>
-            <ul>
-                <li><strong>2025</strong> · PRIME Lab SEED Grant (Purdue University)</li>
-                <li><strong>2024</strong> · GSA Robert K. Fahnestock Award (Best Proposal)</li>
-                <li><strong>2024</strong> · CUNY Doctoral Student Research Grant</li>
-                <li><strong>2024</strong> · NY Map Society - Best Map of the Year</li>
-            </ul>
-        </div>
-
-        <div class="aboutme-card" id="publications-conferences">
-            <large>Selected Publications</large>
-            <p style="font-style: italic; border-left: 3px solid #eee; padding-left: 15px;">
-                Fadul, C.M., <strong>Oliveira, P.</strong> & Val, P. (2022) Ongoing landscape transience in the eastern Amazon Craton.
-                <em>Earth Surface Processes and Landforms</em>.
-                <a href="https://doi.org/10.1002/esp.5447" style="color: var(--accent);">[Link]</a>
-            </p>
-
-            <h3 style="border:none; font-size: 0.9rem; text-transform: uppercase;">Recent Presentations</h3>
-            <ul style="font-size: 0.85rem;">
-                <li>GSA Connects 2025 (Oral) - San Antonio, TX</li>
-                <li>CSDMS Meeting 2025 (Poster) - Boulder, CO</li>
-                <li>AGU Fall Meeting 2023 (Poster) - San Francisco, CA</li>
-            </ul>
-        </div>
-
-        <div class="aboutme-card" id="experience">
-            <large>Research & Training</large>
-
-            <div class="experience-item">
-                <span class="date-tag">2024</span>
-                <h4>Cosmogenic Lab Training</h4>
-                <p><small>University of Vermont · 10Be, 26Al extraction</small></p>
-            </div>
-
-            <div class="experience-item">
-                <span class="date-tag">2024</span>
-                <h4>ESPIn Summer Training</h4>
-                <p><small>CU Boulder · LandLab & Science Programming</small></p>
-            </div>
-
-            <div class="experience-item">
-                <span class="date-tag">2022 - Pres.</span>
-                <h4>Teaching Assistant</h4>
-                <p><small>Queens College CUNY · Physical Geology Lab</small></p>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section class="cta" id="contact" style="margin-bottom: 1rem;">
-        <button class="btn" id="openForm">Fill out this form</button>
-    </section>
-
-    <div id="contactModal" class="modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h3>Contact Me</h3>
-            <form action="https://formspree.io/f/xwvvrvrd" method="POST" enctype="multipart/form-data" class="modal-form">
-              <input type="text" name="name" placeholder="Your Name" required>
-              <input type="email" name="email" placeholder="Your Email" required>
-
-              <textarea name="message" placeholder="How can I help with your landscape evolution project?" rows="4" required></textarea>
-
-                <label style="font-size: 0.85rem; color: #64748b; margin-bottom: -10px;">Attach a screenshot (optional):</label>
-                <input type="file" name="upload" accept="image/*">
-
-              <button type="submit" class="btn">Send Message</button>
-
-            </form>
-        </div>
-    </div>
 
     <footer style="color: black;">
         © 2026 Pedro Oliveira · poliveira@gradcenter.cuny.edu
     </footer>
 
-    <script>
-        const modal = document.getElementById("contactModal");
-        const openBtn = document.getElementById("openForm");
-        const navBtn = document.getElementById("navContact");
-        const closeBtn = document.querySelector(".close-btn");
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Contact Me</h2>
+            <form id="openForm">
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
 
-        // Function to open modal
-        const openModal = (e) => {
-            e.preventDefault();
-            modal.style.display = "block";
+   <script>
+    const modal = document.getElementById("contactModal");
+    const navBtn = document.getElementById("navContact"); // This targets the nav link
+    const closeBtn = document.querySelector(".close-btn");
+
+    // Function to open modal
+    const openModal = (e) => {
+        e.preventDefault();
+        modal.style.display = "block";
+    }
+
+    // Only use navBtn here unless you add a second button in the body
+    navBtn.addEventListener("click", openModal);
+
+    // Close logic
+    closeBtn.onclick = () => modal.style.display = "none";
+
+    window.onclick = (event) => {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
+    }
+</script>
 
-        // Event Listeners
-        openBtn.addEventListener("click", openModal);
-        navBtn.addEventListener("click", openModal);
-
-        closeBtn.onclick = () => modal.style.display = "none";
-
-        window.onclick = (event) => {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+<script>
+    fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+    });
+</script>
 
 </body>
 </html>

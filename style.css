@@ -1,0 +1,559 @@
+
+    :root {
+        --bg: rgba(141, 234, 255, 0.42);
+        --card: rgb(55, 117, 254);
+        --accent: #3775fe;
+        --accent-soft: rgba(0, 0, 0, 0);
+        --text: #ffffff;
+        --muted: rgb(255, 255, 255);
+        --radius: 16px;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* ================= NAVBAR ================= */
+    .brand-name {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: #1a1a1a;
+        letter-spacing: -0.5px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        cursor: pointer;
+    }
+
+    .brand-name span {
+        color: var(--accent); /* This makes the last part of your name or a dot blue */
+    }
+
+    .brand-tagline {
+        display: block;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #64748b;
+        margin-top: -4px;
+    }
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgb(171, 218, 255);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-inner {
+        max-width: 1100px;
+        margin: auto;
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .btn, .dropbtn {
+        padding: 0.6rem 1.4rem;
+        border-radius: 12px; /* Matching your card radius style */
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--accent);
+        font-size: 0.95rem;
+        font-weight: 600;
+        border: 1px solid rgba(55, 117, 254, 0.2);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .btn:hover, .dropbtn:hover {
+        background: var(--accent);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(55, 117, 254, 0.2);
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: var(--card);
+        min-width: 160px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        border-radius: var(--radius);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        padding: 12px 16px;
+        display: block;
+        color: var(--text);
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a:hover {
+        background-color: var(--bg);
+    }
+
+    .header-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+    }
+
+    /* ================= SECTIONS ================= */
+    section {
+            max-width: 1100px;
+            margin: 0 auto;        /* Removed top/bottom margin */
+            padding: 2.5rem 2rem;  /* Reduced from 4rem to 2.5rem */
+        }
+
+        /* Remove padding from the very first section so it sits closer to the header */
+        section:first-of-type {
+            padding-top: 1.5rem;
+        }
+
+        /* Optional: Add a very subtle divider line between sections */
+        section:not(:last-of-type) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+    .hero {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 0.5rem;
+        align-items: center;
+        color: black;
+    }
+
+    .hero h1 {
+        font-size: 2.6rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        max-width: 480px;
+    }
+
+    .hero-image {
+        border-radius: var(--radius);
+        aspect-ratio: 1 / 0.75;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ================= PROJECTS ================= */
+    .projects {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .project-card {
+        background: var(--card);
+        border-radius: 8px;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .metrics {
+        display: flex;
+        gap: 1rem;
+        font-size: 0.85rem;
+        color: var(--muted);
+        margin: 1rem 0;
+    }
+
+    .project-image {
+        border-radius: var(--radius);
+        aspect-ratio: 2 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .slideshow {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        border-radius: var(--radius);
+    }
+
+    .slideshow img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        animation: fadeSlide 15s infinite;
+    }
+
+    .slideshow img:nth-child(1) { animation-delay: 0s; }
+    .slideshow img:nth-child(2) { animation-delay: 3s; }
+    .slideshow img:nth-child(3) { animation-delay: 6s; }
+    .slideshow img:nth-child(4) { animation-delay: 9s; }
+    .slideshow img:nth-child(5) { animation-delay: 12s; }
+
+    @keyframes fadeSlide {
+        0%, 20% { opacity: 0; }
+        25%, 45% { opacity: 1; }
+        50%, 100% { opacity: 0; }
+    }
+
+    /* ================= ABOUT ME ================= */
+    /* ================= IMPROVED ABOUT ME STYLES ================= */
+    .aboutme {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Two columns on big screens */
+        gap: 2rem;
+        color: #333; /* Darker text for readability inside white/light cards */
+    }
+
+    .aboutme-card {
+        background: #ffffff;
+        border-radius: var(--radius);
+        padding: 2.5rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid var(--accent); /* Adds a professional accent bar */
+    }
+
+    .aboutme-card large {
+        display: block;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 1.5rem;
+    }
+
+    .aboutme-card h3 {
+        font-size: 1.15rem;
+        margin: 1.5rem 0 0.5rem 0;
+        color: #1a1a1a;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 5px;
+    }
+
+    .date-tag {
+        float: right;
+        font-size: 0.8rem;
+        background: #f0f7ff;
+        color: var(--accent);
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-weight: 600;
+    }
+
+    .aboutme-card ul, .aboutme-card ol {
+        padding-left: 1.2rem;
+    }
+
+    .aboutme-card li {
+        margin-bottom: 1rem;
+    }
+
+    .aboutme-card p {
+        margin: 0.5rem 0;
+        font-size: 0.95rem;
+        color: #4a5568;
+    }
+
+    /* Specific styling for Experience and Publications */
+    .experience-item {
+        margin-bottom: 2rem;
+    }
+
+    .experience-item h4 {
+        margin: 0;
+        color: #2d3748;
+    }
+
+    /* Responsive adjustment */
+    @media (max-width: 768px) {
+        .aboutme { grid-template-columns: 1fr; }
+        .date-tag { float: none; display: inline-block; margin-bottom: 5px; }
+    }
+
+    /* ================= MODAL & FORM ================= */
+
+    /* 1. Modal Background (The Overlay) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(4px); /* Modern blur effect */
+    }
+
+    /* 2. The White Box */
+    .modal-content {
+        background-color: white;
+        color: #333; /* Dark text for readability */
+        margin: 5% auto;
+        padding: 30px;
+        width: 90%;
+        max-width: 500px;
+        border-radius: 12px;
+        position: relative;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+
+    .modal-content h3 {
+        margin-top: 0;
+        color: var(--accent);
+        font-size: 1.5rem;
+    }
+
+    .close-btn {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        font-size: 28px;
+        cursor: pointer;
+        color: #94a3b8;
+    }
+
+    .close-btn:hover { color: #333; }
+
+    /* 3. Form Pretty Styling */
+    #contactModal form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    #contactModal input[type="file"] {
+        padding: 10px;
+        background: #f1f5f9;
+        border: 2px dashed #cbd5e1; /* Dashed border suggests "drop here" */
+        cursor: pointer;
+        font-size: 0.8rem;
+    }
+
+    #contactModal input[type="file"]:hover {
+        border-color: var(--accent);
+        background-color: #f8fafc;
+}
+    #contactModal input,
+    #contactModal textarea {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #e1e8ed;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-family: inherit;
+        transition: all 0.3s ease;
+        background-color: #f9fbfd;
+    }
+
+    #contactModal input:focus,
+    #contactModal textarea:focus {
+        outline: none;
+        border-color: var(--accent);
+        background-color: #ffffff;
+        box-shadow: 0 0 0 4px rgba(55, 117, 254, 0.1);
+    }
+
+    #contactModal input::placeholder,
+    #contactModal textarea::placeholder {
+        color: #94a3b8;
+    }
+
+    #contactModal .btn {
+        width: 100%;
+        padding: 12px;
+        font-weight: 600;
+    }
+
+    #contactModal .btn:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 12px rgba(55, 117, 254, 0.3);
+    }
+
+    #navContact {
+    position: relative;
+    background: linear-gradient(135deg, #3775fe 0%, #0046e5 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 15px rgba(55, 117, 254, 0.3);
+    overflow: hidden;
+    }
+
+    #navContact:hover {
+        filter: brightness(1.1);
+        box-shadow: 0 6px 20px rgba(55, 117, 254, 0.4);
+    }
+
+    /* Ensure dropdown arrows look nice */
+    .dropbtn::after {
+        content: ' \25BE'; /* Small down arrow */
+        font-size: 0.8rem;
+        opacity: 0.7;
+    }
+
+    /* Add a subtle "shimmer" effect that runs across the button */
+    #navContact::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: all 0.6s;
+    }
+
+    #navContact:hover::after {
+        left: 100%;
+    }
+
+    #navContact:hover {
+        transform: scale(1.05); /* Slight grow */
+        box-shadow: 0 6px 20px rgba(55, 117, 254, 0.4);
+        filter: brightness(1.1);
+    }
+
+    #navContact:active {
+        transform: scale(0.98); /* Sinks in when clicked */
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+        padding: 2rem;
+        text-align: center;
+        font-size: 0.8rem;
+    }
+
+    @media (max-width: 900px) {
+        .hero, .project-card { grid-template-columns: 1fr; }
+    }
+
+    /* ================= TOOLS SECTION ================= */
+.tools-section {
+    padding: 60px 0;
+}
+
+.tools-title {
+    font-size: 2.5rem;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    text-align: left;
+}
+
+.tools-subtitle {
+    color: #64748b;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+/* The Card Styling */
+.tool-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(55, 117, 254, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    text-decoration: none !important; /* Removes underline from links */
+    color: inherit;
+}
+
+.tool-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(55, 117, 254, 0.15);
+    border-color: var(--accent);
+}
+
+/* Icon Design */
+.tool-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(55, 117, 254, 0.1);
+    color: var(--accent);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    transition: var(--transition);
+}
+
+.tool-card:hover .tool-icon {
+    background: var(--accent);
+    color: white;
+}
+
+/* Typography inside card */
+.tag {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+}
+
+.tool-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.4rem;
+    color: #1a1a1a;
+}
+
+.tool-card p {
+    color: #4a5568;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.tool-link {
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+}

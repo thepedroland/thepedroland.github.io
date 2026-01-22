@@ -1,0 +1,96 @@
+<!-----About me --->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedro Oliveira (@thepedroland) | About Me</title>
+</head>
+
+<body>
+    <header id="nav-placeholder" class="navbar"></header>
+    <div style="text-align: center; margin: 2rem 0;">
+        <a href="assets/CV_Oliveira_Pedro.pdf" download class="download-cv-btn" style="display: inline-block; padding: 0.75rem 2rem; background: var(--accent, #007bff); color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: background 0.2s;">
+            <i class="fa fa-download" style="margin-right: 8px;"></i>Download CV
+        </a>
+    </div>
+    <h2 style="color: black; margin-bottom: 2rem; font-size: 2rem;">At a glance</h2>
+
+    <div class="aboutme">
+        <div class="aboutme-card" id="education">
+            <span class="aboutme-section-title">Education</span>
+            <div class="experience-item">
+                <span class="date-tag">2022 - Present</span>
+                <h3>PhD Candidate</h3>
+                <p><strong>Environmental and Geological Sciences</strong></p>
+                <p>Graduate Center - City University of New York (CUNY)</p>
+            </div>
+            <div class="experience-item">
+                <span class="date-tag">2015 - 2022</span>
+                <h3>B.S. Geological Engineering</h3>
+                <p><strong>Federal University of Ouro Preto, Brazil</strong></p>
+                <p>School of Mines - Geology Department</p>
+            </div>
+        </div>
+
+        <div class="aboutme-card" id="grants">
+            <span class="aboutme-section-title">Grants & Awards</span>
+            <ul>
+                <li><strong>2025</strong> · PRIME Lab SEED Grant (Purdue University)</li>
+                <li><strong>2024</strong> · GSA Robert K. Fahnestock Award (Best Proposal)</li>
+                <li><strong>2024</strong> · CUNY Doctoral Student Research Grant</li>
+                <li><strong>2024</strong> · NY Map Society - Best Map of the Year</li>
+            </ul>
+        </div>
+
+        <div class="aboutme-card" id="publications-conferences">
+            <span class="aboutme-section-title">Selected Publications</span>
+            <p style="font-style: italic; border-left: 3px solid #eee; padding-left: 15px;">
+                Fadul, C.M., <strong>Oliveira, P.</strong> & Val, P. (2022) Ongoing landscape transience in the eastern Amazon Craton.
+                <em>Earth Surface Processes and Landforms</em>.
+                <a href="https://doi.org/10.1002/esp.5447" style="color: var(--accent);">[Link]</a>
+            </p>
+
+            <h3 style="border:none; font-size: 0.9rem; text-transform: uppercase;">Recent Presentations</h3>
+            <ul style="font-size: 0.85rem;">
+                <li>GSA Connects 2025 (Oral) - San Antonio, TX</li>
+                <li>CSDMS Meeting 2025 (Poster) - Boulder, CO</li>
+                <li>AGU Fall Meeting 2023 (Poster) - San Francisco, CA</li>
+            </ul>
+        </div>
+
+        <div class="aboutme-card" id="experience">
+            <span class="aboutme-section-title">Research & Training</span>
+
+            <div class="experience-item">
+                <span class="date-tag">2024</span>
+                <h4>Cosmogenic Lab Training</h4>
+                <p><small>University of Vermont · 10Be, 26Al extraction</small></p>
+            </div>
+
+            <div class="experience-item">
+                <span class="date-tag">2024</span>
+                <h4>ESPIn Summer Training</h4>
+                <p><small>CU Boulder · LandLab & Science Programming</small></p>
+            </div>
+
+            <div class="experience-item">
+                <span class="date-tag">2022 - Pres.</span>
+                <h4>Teaching Assistant</h4>
+                <p><small>Queens College CUNY · Physical Geology Lab</small></p>
+            </div>
+        </div>
+    </div>
+
+<script>
+    fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+    });
+</script>
+</body>

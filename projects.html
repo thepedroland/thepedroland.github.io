@@ -1,0 +1,89 @@
+<!-- PROJECTS -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pedro Oliveira (@thepedroland) | Projects</title>
+</head>
+
+<body>
+    <header id="nav-placeholder" class="navbar"></header>
+
+    <h2 style="color: black; margin-bottom: 2rem; font-size: 2rem;">Projects & Research</h2>
+    <div class="projects">
+        <div class="project-card">
+            <div>
+                <small>Research Project</small>
+                <h3>Amazon River Basin: Quantifying burial ages and erosion rates using cosmogenic nuclides</h3>
+                <p>
+                    Modeled Be-10 and Al-26 production and decay to infer landscape exposure histories.
+                </p>
+                <div class="metrics">
+                    <span>Python</span>
+                    <span>Monte Carlo</span>
+                    <span>Field Data</span>
+                </div>
+            </div>
+            <div class="project-image"><img src="images/proj_section_1_amazon_1.png" alt="Amazon Project"
+                                            style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div>
+                <small>Research Project</small>
+                <h3>Amazon River Basin: Lithology and River Captures</h3>
+                <p>
+                    Physical and numerical experiments exploring shortening and drainage reorganization.
+                </p>
+                <div class="metrics">
+                    <span>Python</span>
+                    <span>Landlab</span>
+                    <span>Lithology</span>
+                </div>
+            </div>
+            <div class="project-image"><img src="assets/dem_animation.gif" alt="DEM Animation"
+                                            style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div>
+                <small>Modeling Tool</small>
+                <h3>Landscape evolution Sandbox Simulation</h3>
+                <p>
+                    Physical and numerical experiments exploring shortening and drainage reorganization.
+                </p>
+                <div class="metrics">
+                    <span>Arduino</span>
+                    <span>Stepper motor</span>
+                    <span>Tectonics</span>
+                </div>
+            </div>
+            <div class="project-image">
+                <div class="slideshow">
+                    <img src="images/sandbox_pics/image3.jpeg" alt="Sandbox Project">
+                    <img src="images/sandbox_pics/image4.jpeg" alt="Sandbox Project">
+                    <img src="images/sandbox_pics/image5.png" alt="Sandbox Project">
+                    <img src="images/sandbox_pics/image7.png" alt="Sandbox Project">
+                    <img src="images/sandbox_pics/image8.png" alt="Sandbox Project">
+                </div>
+        </div>
+        </div>
+
+    </div>
+
+<script>
+    fetch('navbar.html')
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById('nav-placeholder').innerHTML = data;
+    });
+</script>
+
+</body>
