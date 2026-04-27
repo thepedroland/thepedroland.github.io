@@ -1,14 +1,8 @@
 [
     {
-        "title": "My First Post",
+        "title": "Starting on MATLAB",
         "date": "2026-04-20",
         "summary": "An introduction to my research on landscape evolution.",
-        "file": "posts/my-first-post.md"
+        "filename": "Start_tak_tbb.md"
     },
-    {
-        "title": "River Incision Modeling",
-        "date": "2026-04-25",
-        "summary": "How I use stream power models to simulate river incision over geological time.",
-        "file": "posts/river-incision-model.md"
-    }
 ]

@@ -690,3 +690,26 @@ html {
         grid-template-columns: 1fr;
     }
 }
+
+.markdown-body {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    color: #333;
+    text-align: left;
+}
+
+.markdown-body h1, .markdown-body h2 {
+    color: #3775fe;
+    margin-top: 1.5rem;
+}
+
+.markdown-body p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+.markdown-body ul {
+    margin-left: 20px;
+    margin-bottom: 1rem;
+}

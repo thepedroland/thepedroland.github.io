@@ -1,76 +1,24 @@
-<section id="blog">
-    <h2>📝 Blog</h2>
-    <p>Notes on geomorphology, modeling, and research.</p>
-    <div id="blog-posts-container">
+<section id="blog" style="max-width: 1100px; margin: 4rem auto; padding: 0 2rem;">
+    <h2 style="color: black; font-size: 2rem; margin-bottom: 1rem;">Posts</h2>
+
+    <div id="blog-posts-container" class="blog-grid">
         <p>Loading posts...</p>
     </div>
 </section>
 
-<!-- Blog Post Modal -->
-<div id="blogModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1000; overflow-y:auto;">
-    <div style="background:#fff; max-width:760px; margin:60px auto; border-radius:12px; padding:40px; position:relative;">
-        <span id="closeBlogModal" style="position:absolute; top:16px; right:20px; font-size:1.5rem; cursor:pointer;">&times;</span>
-        <div id="blog-post-content"></div>
-    </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-<script>
-    async function loadBlogPosts() {
-        const container = document.getElementById("blog-posts-container");
-        try {
-            const res = await fetch("posts/posts.json");
-            const posts = await res.json();
-
-            container.innerHTML = "";
-
-            posts.reverse().forEach(post => {
-                const card = document.createElement("div");
-                card.className = "post-card";
-                card.innerHTML = `
-                    <p class="post-date">${post.date}</p>
-                    <h3>${post.title}</h3>
-                    <p>${post.summary}</p>
-                    <span class="read-more">Read more →</span>
-                `;
-                card.addEventListener("click", () => openPost(post.file, post.title, post.date));
-                container.appendChild(card);
-            });
-
-        } catch (err) {
-            container.innerHTML = "<p>Failed to load posts.</p>";
-            console.error(err);
-        }
+<style>
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
     }
-
-    async function openPost(file, title, date) {
-        const modal = document.getElementById("blogModal");
-        const content = document.getElementById("blog-post-content");
-
-        content.innerHTML = `<p>Loading...</p>`;
-        modal.style.display = "block";
-
-        try {
-            const res = await fetch(file);
-            const md = await res.text();
-            content.innerHTML = `
-                <p style="font-size:0.8rem; color:#999; margin-bottom:6px;">${date}</p>
-                <h2 style="margin-bottom:24px;">${title}</h2>
-                <div style="line-height:1.8; color:#333;">${marked.parse(md)}</div>
-            `;
-        } catch (err) {
-            content.innerHTML = "<p>Failed to load post.</p>";
-        }
+    .blog-post-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 16px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        color: #333;
     }
-
-    document.getElementById("closeBlogModal").addEventListener("click", () => {
-        document.getElementById("blogModal").style.display = "none";
-    });
-
-    window.addEventListener("click", (e) => {
-        const modal = document.getElementById("blogModal");
-        if (e.target === modal) modal.style.display = "none";
-    });
-
-    loadBlogPosts();
-</script>
+    .blog-post-card h3 { margin: 10px 0; color: #3775fe; }
+    .blog-post-card small { color: #999; text-transform: uppercase; }
+</style>
