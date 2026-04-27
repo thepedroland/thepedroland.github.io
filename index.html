@@ -48,9 +48,27 @@
     </div>
 
     <script>
+        // Inside your index.html <script>
+    window.addEventListener('DOMContentLoaded', async () => {
+    await loadComponent('nav-placeholder', 'navbar.html');
+
+    // 1. Load the blog HTML structure
+    await loadComponent('blog-section', 'blog.html');
+
+    // 2. NOW manually call the function that lives inside blog.html (or blog.js)
+    if (typeof loadBlogPosts === "function") {
+        loadBlogPosts();
+    } else {
+        // If the script didn't execute, you might need to move
+        // loadBlogPosts into its own .js file and link it in index.html
+        console.log("Blog script not detected, consider moving it to a standalone .js file.");
+    }
+});
+        // 1. Improved load function that returns a Promise
         async function loadComponent(id, url) {
             try {
                 const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const data = await response.text();
                 document.getElementById(id).innerHTML = data;
             } catch (err) {
@@ -58,31 +76,51 @@
             }
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            loadComponent('nav-placeholder', 'navbar.html').then(() => {
-                document.getElementById("navContact").addEventListener("click", function (e) {
-                    e.preventDefault();
-                    modal.style.display = "flex";
-                });
-            });
-            loadComponent('blog-section', 'blog.html');
-        });
-
         const modal = document.getElementById("contactModal");
         const closeBtn = document.querySelector(".close-btn");
 
+        // 2. Main execution block using async/await
+        window.addEventListener('DOMContentLoaded', async () => {
+
+            // Load components sequentially to ensure elements exist before attaching listeners
+            await loadComponent('nav-placeholder', 'navbar.html');
+            await loadComponent('blog-section', 'blog.html');
+
+            // Now attach listeners to elements that were just loaded inside navbar.html
+            const navContact = document.getElementById("navContact");
+            if (navContact) {
+                navContact.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    modal.style.display = "flex";
+                });
+            }
+        });
+
+        // 3. Global click delegation for mobile menu (since navbar is dynamic)
         document.addEventListener("click", function (e) {
             const menuToggle = e.target.closest(".menu-toggle");
             const navLinks = document.querySelector(".nav-links");
-            if (menuToggle && navLinks) navLinks.classList.toggle("active");
-            if (e.target.closest(".nav-links a")) navLinks.classList.remove("active");
+
+            if (menuToggle && navLinks) {
+                navLinks.classList.toggle("active");
+            }
+            if (e.target.closest(".nav-links a")) {
+                navLinks.classList.remove("active");
+            }
         });
 
+        // 4. Modal closing logic
         closeBtn.onclick = () => modal.style.display = "none";
+
         window.addEventListener("click", (event) => {
-            if (event.target === modal) modal.style.display = "none";
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+            // Check for blog-specific modals if they exist in blog.html
             const blogModal = document.getElementById("blogModal");
-            if (blogModal && event.target === blogModal) blogModal.style.display = "none";
+            if (blogModal && event.target === blogModal) {
+                blogModal.style.display = "none";
+            }
         });
     </script>
 </body>
