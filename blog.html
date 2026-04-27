@@ -1,8 +1,7 @@
-<section id="blog" style="padding: 40px 20px; max-width: 900px; margin: 0 auto;">
-    <h2 style="font-size: 1.6rem; margin-bottom: 6px;">📝 Blog</h2>
-    <p style="color: #666; margin-bottom: 28px; font-size: 0.95rem;">Notes on geomorphology, modeling, and research.</p>
-
-    <div id="blog-posts-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px;">
+<section id="blog">
+    <h2>📝 Blog</h2>
+    <p>Notes on geomorphology, modeling, and research.</p>
+    <div id="blog-posts-container">
         <p>Loading posts...</p>
     </div>
 </section>
@@ -27,21 +26,13 @@
 
             posts.reverse().forEach(post => {
                 const card = document.createElement("div");
-                card.style.cssText = `
-                    border: 1px solid #e0e0e0;
-                    border-radius: 12px;
-                    padding: 24px;
-                    cursor: pointer;
-                    transition: box-shadow 0.2s;
-                `;
+                card.className = "post-card";
                 card.innerHTML = `
-                    <p style="font-size:0.8rem; color:#999; margin:0 0 6px;">${post.date}</p>
-                    <h3 style="margin: 0 0 8px; font-size: 1.3rem;">${post.title}</h3>
-                    <p style="color:#555; margin:0 0 14px;">${post.summary}</p>
-                    <span style="font-size:0.9rem; font-weight:600; color: var(--accent, #2a7ae2);">Read more →</span>
+                    <p class="post-date">${post.date}</p>
+                    <h3>${post.title}</h3>
+                    <p>${post.summary}</p>
+                    <span class="read-more">Read more →</span>
                 `;
-                card.addEventListener("mouseenter", () => card.style.boxShadow = "0 4px 20px rgba(0,0,0,0.1)");
-                card.addEventListener("mouseleave", () => card.style.boxShadow = "none");
                 card.addEventListener("click", () => openPost(post.file, post.title, post.date));
                 container.appendChild(card);
             });
@@ -83,4 +74,3 @@
 
     loadBlogPosts();
 </script>
-

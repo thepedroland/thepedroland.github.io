@@ -1,179 +1,176 @@
+:root {
+    --bg: rgba(141, 234, 255, 0.42);
+    --card: rgb(55, 117, 254);
+    --accent: #3775fe;
+    --accent-soft: rgba(0, 0, 0, 0);
+    --text: #ffffff;
+    --muted: rgb(255, 255, 255);
+    --radius: 16px;
+}
 
-    :root {
-        --bg: rgba(141, 234, 255, 0.42);
-        --card: rgb(55, 117, 254);
-        --accent: #3775fe;
-        --accent-soft: rgba(0, 0, 0, 0);
-        --text: #ffffff;
-        --muted: rgb(255, 255, 255);
-        --radius: 16px;
-    }
+* {
+    box-sizing: border-box;
+}
 
-    * {
-        box-sizing: border-box;
-    }
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
 
-    body {
-        margin: 0;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background: var(--bg);
-        color: var(--text);
-        line-height: 1.6;
-    }
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-    a {
-        text-decoration: none;
-        color: inherit;
-    }
+/* ================= NAVBAR ================= */
+.brand-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: pointer;
+}
 
-    /* ================= NAVBAR ================= */
-    .brand-name {
-        font-size: 1.4rem;
-        font-weight: 800;
-        color: #1a1a1a;
-        letter-spacing: -0.5px;
-        display: flex;
-        align-items: center;
-        gap: 4px;
-        cursor: pointer;
-    }
+.brand-name span {
+    color: var(--accent);
+}
 
-    .brand-name span {
-        color: var(--accent); /* This makes the last part of your name or a dot blue */
-    }
+.brand-tagline {
+    display: block;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748b;
+    margin-top: -4px;
+}
 
-    .brand-tagline {
-        display: block;
-        font-size: 0.65rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #64748b;
-        margin-top: -4px;
-    }
-    .navbar {
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        background: rgb(171, 218, 255);
-        backdrop-filter: blur(8px);
-        border-bottom: 1px solid #eee;
-    }
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgb(171, 218, 255);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #eee;
+}
 
-    .nav-inner {
-        max-width: 1100px;
-        margin: auto;
-        padding: 1rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+.nav-inner {
+    max-width: 1100px;
+    margin: auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-    .nav-links {
-        display: flex;
-        gap: 1.5rem;
-        align-items: center;
-    }
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
 
-    .btn, .dropbtn {
-        padding: 0.6rem 1.4rem;
-        border-radius: 12px; /* Matching your card radius style */
-        background: rgba(255, 255, 255, 0.8);
-        color: var(--accent);
-        font-size: 0.95rem;
-        font-weight: 600;
-        border: 1px solid rgba(55, 117, 254, 0.2);
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-    }
+.btn, .dropbtn {
+    padding: 0.6rem 1.4rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: 1px solid rgba(55, 117, 254, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
 
-    .btn:hover, .dropbtn:hover {
-        background: var(--accent);
-        color: white;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(55, 117, 254, 0.2);
-    }
+.btn:hover, .dropbtn:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(55, 117, 254, 0.2);
+}
 
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: var(--card);
-        min-width: 160px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        border-radius: var(--radius);
-        z-index: 1;
-    }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--card);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: var(--radius);
+    z-index: 1;
+}
 
-    .dropdown-content a {
-        padding: 12px 16px;
-        display: block;
-        color: var(--text);
-    }
+.dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    color: var(--text);
+}
 
-    .dropdown:hover .dropdown-content {
-        display: block;
-    }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-    .dropdown-content a:hover {
-        background-color: var(--bg);
-    }
+.dropdown-content a:hover {
+    background-color: var(--bg);
+}
 
-    .header-image {
-        width: 100%;
-        height: 300px;
-        object-fit: cover;
-    }
+.header-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
 
-    /* ================= SECTIONS ================= */
-    section {
-            max-width: 1100px;
-            margin: 0 auto;        /* Removed top/bottom margin */
-            padding: 2.5rem 2rem;  /* Reduced from 4rem to 2.5rem */
-        }
+/* ================= SECTIONS ================= */
+section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+}
 
-        /* Remove padding from the very first section so it sits closer to the header */
-        section:first-of-type {
-            padding-top: 1.5rem;
-        }
+section:first-of-type {
+    padding-top: 1.5rem;
+}
 
-        /* Optional: Add a very subtle divider line between sections */
-        section:not(:last-of-type) {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
+section:not(:last-of-type) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
 
-    .hero {
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 0.5rem;
-        align-items: center;
-        color: black;
-    }
-
-    .hero h1 {
-        font-size: 2.6rem;
-        line-height: 1.2;
-    }
-
-    .hero p {
-        max-width: 480px;
-    }
-
-    .hero-image {
-        border-radius: var(--radius);
-        aspect-ratio: 1 / 0.75;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* ================= PROJECTS ================= */
-    .projects {
+/* ================= HERO ================= */
+.hero {
     display: grid;
-    /* This creates a grid where cards are at least 300px wide
-       and wrap automatically to the next row */
+    grid-template-columns: 1.2fr 1fr;
+    gap: 0.5rem;
+    align-items: center;
+    color: black;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+}
+
+.hero p {
+    max-width: 480px;
+}
+
+.hero-image {
+    border-radius: var(--radius);
+    aspect-ratio: 1 / 0.75;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ================= PROJECTS ================= */
+.projects {
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1.5rem;
 }
@@ -181,26 +178,27 @@
 .project-card {
     background: var(--card);
     border-radius: 8px;
-    padding: 1.5rem; /* Reduced from 2rem */
-    display: flex;   /* Changed from grid to flex for a vertical stack */
+    padding: 1.5rem;
+    display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: flex-start;
 }
-    .metrics {
-        display: flex;
-        gap: 1rem;
-        font-size: 0.85rem;
-        color: var(--muted);
-        margin: 1rem 0;
-    }
 
-    .project-image {
+.metrics {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 1rem 0;
+}
+
+.project-image {
     border-radius: var(--radius);
     width: 100%;
-    min-height: 250px; /* Ensures the box exists even if images are absolute */
+    min-height: 250px;
     position: relative;
-    background: #f1f5f9; /* Placeholder color so it's not just a hole */
+    background: #f1f5f9;
     overflow: hidden;
 }
 
@@ -218,11 +216,9 @@
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    /* Adjusting timing: 15s total, smoother transitions */
     animation: fadeSlide 15s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
-/* Keyframe fix: Ensure one image is ALWAYS visible */
 @keyframes fadeSlide {
     0% { opacity: 0; }
     5% { opacity: 1; }
@@ -231,248 +227,287 @@
     100% { opacity: 0; }
 }
 
-/* Delay Logic (3 seconds per image for 5 images = 15s) */
 .slideshow img:nth-child(1) { animation-delay: 0s; }
 .slideshow img:nth-child(2) { animation-delay: 3s; }
 .slideshow img:nth-child(3) { animation-delay: 6s; }
 .slideshow img:nth-child(4) { animation-delay: 9s; }
 .slideshow img:nth-child(5) { animation-delay: 12s; }
 
-    /* ================= ABOUT ME ================= */
-    /* ================= IMPROVED ABOUT ME STYLES ================= */
-    .aboutme {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Two columns on big screens */
-        gap: 2rem;
-        color: #333; /* Darker text for readability inside white/light cards */
-    }
-
-    .aboutme-card {
-        background: #ffffff;
-        border-radius: var(--radius);
-        padding: 2.5rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-        border-top: 5px solid var(--accent); /* Adds a professional accent bar */
-    }
-
-    .aboutme-card large {
-        display: block;
-        font-size: 0.85rem;
-        text-transform: uppercase;
-        letter-spacing: 1.5px;
-        font-weight: 700;
-        color: var(--accent);
-        margin-bottom: 1.5rem;
-    }
-
-    .aboutme-card h3 {
-        font-size: 1.15rem;
-        margin: 1.5rem 0 0.5rem 0;
-        color: #1a1a1a;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 5px;
-    }
-
-    .date-tag {
-        float: right;
-        font-size: 0.8rem;
-        background: #f0f7ff;
-        color: var(--accent);
-        padding: 4px 12px;
-        border-radius: 20px;
-        font-weight: 600;
-    }
-
-    .aboutme-card ul, .aboutme-card ol {
-        padding-left: 1.2rem;
-    }
-
-    .aboutme-card li {
-        margin-bottom: 1rem;
-    }
-
-    .aboutme-card p {
-        margin: 0.5rem 0;
-        font-size: 0.95rem;
-        color: #4a5568;
-    }
-
-    /* Specific styling for Experience and Publications */
-    .experience-item {
-        margin-bottom: 2rem;
-    }
-
-    .experience-item h4 {
-        margin: 0;
-        color: #2d3748;
-    }
-
-    /* Responsive adjustment */
-    @media (max-width: 768px) {
-        .aboutme { grid-template-columns: 1fr; }
-        .date-tag { float: none; display: inline-block; margin-bottom: 5px; }
-    }
-
-    /* ================= MODAL & FORM ================= */
-
-    /* 1. Modal Background (The Overlay) */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px); /* Modern blur effect */
-    }
-
-    /* 2. The White Box */
-    .modal-content {
-        background-color: white;
-        color: #333; /* Dark text for readability */
-        margin: 5% auto;
-        padding: 30px;
-        width: 90%;
-        max-width: 500px;
-        border-radius: 12px;
-        position: relative;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    }
-
-    .modal-content h3 {
-        margin-top: 0;
-        color: var(--accent);
-        font-size: 1.5rem;
-    }
-
-    .close-btn {
-        position: absolute;
-        right: 20px;
-        top: 15px;
-        font-size: 28px;
-        cursor: pointer;
-        color: #94a3b8;
-    }
-
-    .close-btn:hover { color: #333; }
-
-    /* 3. Form Pretty Styling */
-    #contactModal form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        margin-top: 20px;
-    }
-    #contactModal input[type="file"] {
-        padding: 10px;
-        background: #f1f5f9;
-        border: 2px dashed #cbd5e1; /* Dashed border suggests "drop here" */
-        cursor: pointer;
-        font-size: 0.8rem;
-    }
-
-    #contactModal input[type="file"]:hover {
-        border-color: var(--accent);
-        background-color: #f8fafc;
+/* ================= ABOUT ME ================= */
+.aboutme {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 2rem;
+    color: #333;
 }
-    #contactModal input,
-    #contactModal textarea {
-        width: 100%;
-        padding: 14px;
-        border: 2px solid #e1e8ed;
-        border-radius: 8px;
-        font-size: 1rem;
-        font-family: inherit;
-        transition: all 0.3s ease;
-        background-color: #f9fbfd;
-    }
 
-    #contactModal input:focus,
-    #contactModal textarea:focus {
-        outline: none;
-        border-color: var(--accent);
-        background-color: #ffffff;
-        box-shadow: 0 0 0 4px rgba(55, 117, 254, 0.1);
-    }
+.aboutme-card {
+    background: #ffffff;
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-top: 5px solid var(--accent);
+}
 
-    #contactModal input::placeholder,
-    #contactModal textarea::placeholder {
-        color: #94a3b8;
-    }
+.aboutme-card large {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+}
 
-    #contactModal .btn {
-        width: 100%;
-        padding: 12px;
-        font-weight: 600;
-    }
+.aboutme-card h3 {
+    font-size: 1.15rem;
+    margin: 1.5rem 0 0.5rem 0;
+    color: #1a1a1a;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
 
-    #contactModal .btn:hover {
-        filter: brightness(1.1);
-        transform: translateY(-1px);
-        box-shadow: 0 4px 12px rgba(55, 117, 254, 0.3);
-    }
+.date-tag {
+    float: right;
+    font-size: 0.8rem;
+    background: #f0f7ff;
+    color: var(--accent);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+}
 
-    #navContact {
+.aboutme-card ul, .aboutme-card ol {
+    padding-left: 1.2rem;
+}
+
+.aboutme-card li {
+    margin-bottom: 1rem;
+}
+
+.aboutme-card p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+    color: #4a5568;
+}
+
+.experience-item {
+    margin-bottom: 2rem;
+}
+
+.experience-item h4 {
+    margin: 0;
+    color: #2d3748;
+}
+
+@media (max-width: 768px) {
+    .aboutme { grid-template-columns: 1fr; }
+    .date-tag { float: none; display: inline-block; margin-bottom: 5px; }
+}
+
+/* ================= BLOG SECTION ================= */
+#blog {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+#blog h2 {
+    font-size: 1.6rem;
+    margin-bottom: 6px;
+    color: #1a1a1a;
+}
+
+#blog > p {
+    color: #666;
+    margin-bottom: 28px;
+    font-size: 0.95rem;
+}
+
+#blog-posts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+#blog-posts-container .post-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+    color: #333;
+}
+
+#blog-posts-container .post-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+#blog-posts-container .post-card .post-date {
+    font-size: 0.8rem;
+    color: #999;
+    margin: 0 0 6px;
+}
+
+#blog-posts-container .post-card h3 {
+    margin: 0 0 8px;
+    font-size: 1.3rem;
+    color: #1a1a1a;
+}
+
+#blog-posts-container .post-card p {
+    color: #555;
+    margin: 0 0 14px;
+}
+
+#blog-posts-container .post-card .read-more {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+}
+
+/* ================= MODAL & FORM ================= */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: white;
+    color: #333;
+    margin: 5% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 12px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: var(--accent);
+    font-size: 1.5rem;
+}
+
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #94a3b8;
+}
+
+.close-btn:hover { color: #333; }
+
+#contactModal form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+#contactModal input[type="file"] {
+    padding: 10px;
+    background: #f1f5f9;
+    border: 2px dashed #cbd5e1;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+#contactModal input[type="file"]:hover {
+    border-color: var(--accent);
+    background-color: #f8fafc;
+}
+
+#contactModal input,
+#contactModal textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e1e8ed;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background-color: #f9fbfd;
+}
+
+#contactModal input:focus,
+#contactModal textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(55, 117, 254, 0.1);
+}
+
+#contactModal input::placeholder,
+#contactModal textarea::placeholder {
+    color: #94a3b8;
+}
+
+#contactModal .btn {
+    width: 100%;
+    padding: 12px;
+    font-weight: 600;
+}
+
+#contactModal .btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(55, 117, 254, 0.3);
+}
+
+#navContact {
     position: relative;
     background: linear-gradient(135deg, #3775fe 0%, #0046e5 100%);
     color: white;
     border: none;
     box-shadow: 0 4px 15px rgba(55, 117, 254, 0.3);
     overflow: hidden;
-    }
+}
 
-    #navContact:hover {
-        filter: brightness(1.1);
-        box-shadow: 0 6px 20px rgba(55, 117, 254, 0.4);
-    }
+#navContact::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: all 0.6s;
+}
 
-    /* Ensure dropdown arrows look nice */
-    .dropbtn::after {
-        content: ' \25BE'; /* Small down arrow */
-        font-size: 0.8rem;
-        opacity: 0.7;
-    }
+#navContact:hover::after {
+    left: 100%;
+}
 
-    /* Add a subtle "shimmer" effect that runs across the button */
-    #navContact::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-        transition: all 0.6s;
-    }
+#navContact:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(55, 117, 254, 0.4);
+    filter: brightness(1.1);
+}
 
-    #navContact:hover::after {
-        left: 100%;
-    }
+#navContact:active {
+    transform: scale(0.98);
+}
 
-    #navContact:hover {
-        transform: scale(1.05); /* Slight grow */
-        box-shadow: 0 6px 20px rgba(55, 117, 254, 0.4);
-        filter: brightness(1.1);
-    }
+.dropbtn::after {
+    content: ' \25BE';
+    font-size: 0.8rem;
+    opacity: 0.7;
+}
 
-    #navContact:active {
-        transform: scale(0.98); /* Sinks in when clicked */
-    }
-
-    /* ================= FOOTER ================= */
-    footer {
-        padding: 2rem;
-        text-align: center;
-        font-size: 0.8rem;
-    }
-
-    @media (max-width: 900px) {
-        .hero, .project-card { grid-template-columns: 1fr; }
-    }
-
-    /* ================= TOOLS SECTION ================= */
+/* ================= TOOLS SECTION ================= */
 .tools-section {
     padding: 60px 0;
 }
@@ -496,7 +531,6 @@
     gap: 2rem;
 }
 
-/* The Card Styling */
 .tool-card {
     background: white;
     padding: 2rem;
@@ -507,7 +541,7 @@
     gap: 1.5rem;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    text-decoration: none !important; /* Removes underline from links */
+    text-decoration: none !important;
     color: inherit;
 }
 
@@ -517,7 +551,6 @@
     border-color: var(--accent);
 }
 
-/* Icon Design */
 .tool-icon {
     width: 60px;
     height: 60px;
@@ -528,7 +561,6 @@
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    transition: var(--transition);
 }
 
 .tool-card:hover .tool-icon {
@@ -536,7 +568,6 @@
     color: white;
 }
 
-/* Typography inside card */
 .tag {
     color: var(--accent);
     text-transform: uppercase;
@@ -566,50 +597,50 @@
     margin-top: auto;
 }
 
+/* ================= SOCIAL LINKS ================= */
 .social-links {
     display: flex;
     align-items: center;
-    gap: 20px; /* Space between icons */
+    gap: 20px;
 }
 
 .social-icon {
-    font-size: 45px; /* Slightly smaller for a cleaner look */
-    color: #475569; /* Soft slate gray */
+    font-size: 45px;
+    color: #475569;
     transition: all 0.3s ease;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
 }
 
-/* GitHub Hover Effect */
 .social-icon.github:hover {
     color: #000000;
     transform: translateY(-3px);
 }
 
-/* YouTube Hover Effect */
 .social-icon.youtube:hover {
-    color: #ff0000; /* YouTube Red */
+    color: #ff0000;
     transform: translateY(-3px);
 }
 
-/* If you still want them inside your navbar, use this to align middle */
-.nav-links {
-    display: flex;
-    align-items: center;
+/* ================= FOOTER ================= */
+footer {
+    padding: 2rem;
+    text-align: center;
+    font-size: 0.8rem;
 }
 
+/* ================= SCROLL & ANCHORS ================= */
 html {
     scroll-behavior: smooth;
 }
 
-/* Add some padding to sections so the navbar doesn't cover the titles */
 #projects-section, #tools-section, #aboutme-section {
     padding-top: 80px;
     margin-top: -80px;
 }
 
-/* Hide menu toggle on desktop */
+/* ================= HAMBURGER MENU ================= */
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
@@ -619,13 +650,16 @@ html {
     cursor: pointer;
 }
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 900px) {
+    .hero, .project-card { grid-template-columns: 1fr; }
+
     .menu-toggle {
-        display: block; /* Show hamburger on mobile */
+        display: block;
     }
 
     .nav-links {
-        display: none; /* Hide links by default on mobile */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
@@ -639,11 +673,11 @@ html {
     }
 
     .nav-links.active {
-        display: flex; /* Show links when toggle is clicked */
+        display: flex;
     }
 
     .nav-links .btn {
-        width: 100%; /* Full width buttons on mobile */
+        width: 100%;
         justify-content: center;
     }
 
@@ -651,5 +685,8 @@ html {
         justify-content: center;
         padding-top: 1rem;
     }
-}
 
+    #blog-posts-container {
+        grid-template-columns: 1fr;
+    }
+}
