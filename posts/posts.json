@@ -1,14 +1,15 @@
 [
     {
-        "title": "My First Post",
-        "date": "2026-04-20",
-        "summary": "An introduction to my research on landscape evolution.",
-        "file": "posts/my-first-post.md"
+        "title": "Notes on riversand1.4",
+        "date": "2026-02-06",
+        "summary": "Some notes on how I've been using it.",
+        "filename": "riversand1_4.md"
     },
+
     {
-        "title": "River Incision Modeling",
-        "date": "2026-04-25",
-        "summary": "How I use stream power models to simulate river incision over geological time.",
-        "file": "posts/river-incision-model.md"
+        "title": "Starting on MATLAB",
+        "date": "2026-02-06",
+        "summary": "Some tips and thoughts",
+        "filename": "Start_tak_ttb.md"
     }
 ]

@@ -1,8 +1,5 @@
-<!-- PROJECTS -->
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
@@ -14,76 +11,100 @@
 <body>
     <header id="nav-placeholder" class="navbar"></header>
 
-    <h2 style="color: black; margin-bottom: 2rem; font-size: 2rem;">Projects & Research</h2>
-    <div class="projects">
-        <div class="project-card">
-            <div>
-                <small>Research Project</small>
-                <h3>Amazon River Basin: Quantifying burial ages and erosion rates using cosmogenic nuclides</h3>
-                <p>
-                    Modeled Be-10 and Al-26 production and decay to infer landscape exposure histories.
-                </p>
-                <div class="metrics">
-                    <span>Python</span>
-                    <span>Monte Carlo</span>
-                    <span>Field Data</span>
+    <section>
+        <h2 style="color: black; margin-bottom: 2rem; font-size: 2rem;">Projects & Research</h2>
+        <div class="projects">
+            <div class="project-card">
+                <div>
+                    <small>Research Project</small>
+                    <h3>Amazon River Basin: Quantifying burial ages and erosion rates</h3>
+                    <p>Modeled Be-10 and Al-26 production and decay to infer landscape exposure histories.</p>
+                    <div class="metrics">
+                        <span>Python</span><span>Monte Carlo</span><span>Field Data</span>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <img src="images/proj_section_1_amazon_1.png" alt="Amazon Project" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
                 </div>
             </div>
-            <div class="project-image"><img src="images/proj_section_1_amazon_1.png" alt="Amazon Project"
-                                            style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
-            </div>
-        </div>
 
-        <div class="project-card">
-            <div>
-                <small>Research Project</small>
-                <h3>Amazon River Basin: Lithology and River Captures</h3>
-                <p>
-                    Physical and numerical experiments exploring shortening and drainage reorganization.
-                </p>
-                <div class="metrics">
-                    <span>Python</span>
-                    <span>Landlab</span>
-                    <span>Lithology</span>
+            <div class="project-card">
+                <div>
+                    <small>Research Project</small>
+                    <h3>Amazon River Basin: Lithology and River Captures</h3>
+                    <p>Physical and numerical experiments exploring shortening and drainage reorganization.</p>
+                    <div class="metrics">
+                        <span>Python</span><span>Landlab</span><span>Lithology</span>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <img src="assets/dem_animation.gif" alt="DEM Animation" style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
                 </div>
             </div>
-            <div class="project-image"><img src="assets/dem_animation.gif" alt="DEM Animation"
-                                            style="width: 100%; height: 100%; object-fit: cover; border-radius: var(--radius);">
-            </div>
-        </div>
 
-        <div class="project-card">
-            <div>
-                <small>Modeling Tool</small>
-                <h3>Landscape evolution Sandbox Simulation</h3>
-                <p>
-                    Physical and numerical experiments exploring shortening and drainage reorganization.
-                </p>
-                <div class="metrics">
-                    <span>Arduino</span>
-                    <span>Stepper motor</span>
-                    <span>Tectonics</span>
+            <div class="project-card">
+                <div>
+                    <small>Modeling Tool</small>
+                    <h3>Landscape evolution Sandbox Simulation</h3>
+                    <p>Physical and numerical experiments exploring shortening and drainage reorganization.</p>
+                    <div class="metrics">
+                        <span>Arduino</span><span>Stepper motor</span><span>Tectonics</span>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <div class="slideshow">
+                        <img src="images/sandbox_pics/image3.jpeg" alt="Sandbox Project">
+                        <img src="images/sandbox_pics/image4.jpeg" alt="Sandbox Project">
+                        <img src="images/sandbox_pics/image5.png" alt="Sandbox Project">
+                        <img src="images/sandbox_pics/image7.png" alt="Sandbox Project">
+                        <img src="images/sandbox_pics/image8.png" alt="Sandbox Project">
+                    </div>
                 </div>
             </div>
-            <div class="project-image">
-                <div class="slideshow">
-                    <img src="images/sandbox_pics/image3.jpeg" alt="Sandbox Project">
-                    <img src="images/sandbox_pics/image4.jpeg" alt="Sandbox Project">
-                    <img src="images/sandbox_pics/image5.png" alt="Sandbox Project">
-                    <img src="images/sandbox_pics/image7.png" alt="Sandbox Project">
-                    <img src="images/sandbox_pics/image8.png" alt="Sandbox Project">
-                </div>
         </div>
-        </div>
+    </section>
 
-    </div>
+    <div id="modal-placeholder"></div>
 
-<script>
-    fetch('navbar.html')
-    .then(response => response.text())
-    .then(data => {
-        document.getElementById('nav-placeholder').innerHTML = data;
-    });
-</script>
+    <script>
+        async function loadComponent(id, url) {
+            try {
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const data = await response.text();
+                document.getElementById(id).innerHTML = data;
+            } catch (err) {
+                console.error("Error loading component:", url, err);
+            }
+        }
 
+        window.addEventListener('DOMContentLoaded', async () => {
+            // Use absolute paths (starting with /) so it works from any page
+            await loadComponent('nav-placeholder', '/navbar.html');
+            await loadComponent('modal-placeholder', '/contact-modal.html');
+        });
+
+        // Global click handler for injected content
+        document.addEventListener("click", function (e) {
+            const modal = document.getElementById("contactModal");
+
+            // Open Modal
+            if (e.target.closest("#navContact")) {
+                e.preventDefault();
+                if (modal) modal.style.display = "flex";
+            }
+
+            // Close Modal (X button or clicking outside)
+            if (e.target.classList.contains("close-btn") || e.target === modal) {
+                if (modal) modal.style.display = "none";
+            }
+
+            // Mobile Menu Toggle
+            if (e.target.closest(".menu-toggle")) {
+                const navLinks = document.querySelector(".nav-links");
+                if (navLinks) navLinks.classList.toggle("active");
+            }
+        });
+    </script>
 </body>
+</html>
