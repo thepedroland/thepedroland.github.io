@@ -1,5 +1,17 @@
-[
+ [
+
+    {
+        "title": "Notes on riversand1.4",
+        "date": "2026-02-06",
+        "summary": "Some notes on how I've been using it.",
+        "filename": "riversand1_4.md"
+    },
+
     {
         "title": "Starting on MATLAB",
+        "date": "2026-02-06",
+        "summary": "Some tips and thoughts",
+        "filename": "Start_tak_ttb.md"
+
     }
 ]
